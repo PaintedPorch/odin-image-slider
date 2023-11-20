@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    width: 100vw;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    opacity: .05;
+    order: 0;
+    position: absolute;
+}
+
+#slider {
+    width: 50%;
+    height: 40%;
+    background-color: gray;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    position: absolute;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.815);
+    font-size: 4rem;
+    transition: .3s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    opacity: 1.2;
+}
