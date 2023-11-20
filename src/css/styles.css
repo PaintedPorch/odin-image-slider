@@ -1,10 +1,16 @@
+* {
+    --buttonColor: rgba(255, 255, 255, 0.815);
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     height: 100vh;
     width: 100vw;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .background {
@@ -17,26 +23,32 @@ body {
 
 #slider {
     width: 50%;
-    height: 40%;
+    height: 45%;
     background-color: gray;
     order: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
 }
 
 #buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 75%;
     position: absolute;
 }
 
 .button {
     background-color: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.815);
+    color: var(--buttonColor);
     font-size: 4rem;
     transition: .3s;
 }
@@ -45,4 +57,27 @@ body {
     transform: scale(1.1);
     cursor: pointer;
     opacity: 1.2;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    order: 2;
+    width: 300px;
+}
+
+.imageButton {
+    background-color: var(--buttonColor);
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    opacity: .4;
+    padding: 5px;
+}
+
+.imageButton:hover {
+    opacity: 1;
+    cursor: pointer;
 }

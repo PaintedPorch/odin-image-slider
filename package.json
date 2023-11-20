@@ -1,0 +1,30 @@
+{
+  "name": "odin-image-slider",
+  "version": "1.0.0",
+  "description": "My rendition of the TOP image-slider sub-assignment",
+  "main": "./src/index.js",
+  "prettier": "prettier-airbnb-config",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "build-production": "webpack --mode=production",
+    "start": "webpack --mode=development && webpack-dev-server --open --mode=development",
+    "start-production": "webpack --mode=production && webpack-dev-server --open --mode=production",
+    "lint": "eslint src --ext .js",
+    "deploy-demo": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.48.0",
+    "eslint-webpack-plugin": "^4.0.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "4.15.1"
+  }
+}
