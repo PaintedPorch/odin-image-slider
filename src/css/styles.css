@@ -11,6 +11,7 @@ body {
     width: 100vw;
     flex-direction: column;
     gap: 25px;
+    min-width: 375px;
 }
 
 .background {
@@ -30,11 +31,13 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    max-width: 400px;
 }
 
 .image {
     height: 100%;
     width: 100%;
+    max-width: 400px;
 }
 
 #buttons {
@@ -43,6 +46,8 @@ body {
     align-items: center;
     width: 75%;
     position: absolute;
+    min-width: 350px;
+    max-width: 600px;
 }
 
 .button {
@@ -80,4 +85,11 @@ body {
 .imageButton:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #slider {
+        width: 42.5%;
+        height: 27.5%;
+    }
 }

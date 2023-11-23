@@ -1,10 +1,3 @@
-// Create an array of images, since we're using a premade list there is
-// No worry about creating images on the fly. The list will consist of 
-// image-locations, this will swap out the urls in the image-list. Since
-// we need the buttons to work we'll need to find a way to have the functions
-// from the other files work with our list and update the slider on each
-// outside interaction.
-
 const locationList = [{url: "./assets/images/bach.jpg", alt: "bach-img"}, {url: "./assets/images/beethoven.png", alt: "beethoven-img"}, {url: "./assets/images/brahms.jpg", alt: "brahms-img"}, {url: "./assets/images/satie.jpeg", alt: "satie-img"}, {url: "./assets/images/chopin.jpeg", alt: "chopin-img"}, {url: "./assets/images/listz.jpg", alt: "listz-img"}];
 let currentIndex = 0;
 
@@ -60,7 +53,7 @@ function DecrementIndex() {
     }
 } 
 
-function DisplayCurrentIndex() {
+export function DisplayCurrentIndex() {
     image.src = locationList[currentIndex].url;
     image.alt = locationList[currentIndex].alt;
 }
@@ -92,7 +85,33 @@ body.appendChild(buttonDiv);
 
 // Create function that auto goes to the next image and highlights active
 
+var x = 0;
+var intervalID = setInterval(function () {
+    IncrementIndex();
+    DisplayCurrentIndex();
+    if (++x === buttonList.length) {
+        window.clearInterval(intervalID);
+    }
+}, 0.000001);
+
 let intervalId = window.setInterval(function(){
     IncrementIndex();
     DisplayCurrentIndex();
 }, 5000);
+
+// Create function to click on each button and travel there
+for (let i = 0; i < buttonList.length; i++) {
+    buttonList[i].addEventListener("click", function() {
+        for (let i = 0; i < buttonList.length; i++) {
+            buttonList[i].style.opacity = .4;
+        }
+        currentIndex = i;
+        DisplayCurrentIndex();
+        clearInterval(intervalId);
+        buttonList[i].style.opacity = 1;
+        intervalId = window.setInterval(function(){
+            IncrementIndex();
+            DisplayCurrentIndex();
+        }, 5000);
+    });
+}
